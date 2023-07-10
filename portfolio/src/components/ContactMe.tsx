@@ -18,9 +18,7 @@ const ContactMe = (props: Props) => {
     (window.location.href = `mailto:zeynepyesilkaya58@gmail?subject=${data.subject}&body=Hi, my name is ${data.name}. ${data.message} (${data.email})`)
   return (
     <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-16 uppercase tracking-[20px] text-[#6C55E0] text-2xl'>
-        Contact
-      </h3>
+      <h3 className='snap-title'>Contact</h3>
       <div className='relative flex top-10 flex-col space-y-10'>
         <h4 className='text-3xl font-semibold text-center'>
           I have got just what you need.{' '}
@@ -29,27 +27,27 @@ const ContactMe = (props: Props) => {
 
         <div className='space-y-10'>
           <div className='flex items-center space-x-5 justify-center'>
-            <PhoneIcon className='text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
+            <PhoneIcon className='contact-icon text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
             <p className='text-2xl'>+123456789</p>
           </div>
         </div>
         <div className='space-y-10'>
           <div className='flex items-center space-x-5 justify-center'>
-            <EnvelopeIcon className='text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
+            <EnvelopeIcon className='contact-icon text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
             <p className='text-2xl'>zeynpyesilkaya@gmail.com</p>
           </div>
         </div>
         <div className='space-y-10'>
           <div className='flex items-center space-x-5 justify-center'>
-            <MapPinIcon className='text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>+123456789</p>
+            <MapPinIcon className='contact-icon text-[##6C55E0]/50 h-7 w-7 animate-pulse' />
+            <p className='text-2xl'>Ankara</p>
           </div>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='flex flex-col space-y-2 w-fit mx-auto'
+          className='flex flex-col w-screen space-y-2 sm:w-fit px-8 mx-auto'
         >
-          <div className='flex space-x-2'>
+          <div className='flex flex-col items-center md:flex-row gap-2'>
             <input
               {...register('name')}
               className='contactInput'
