@@ -8,6 +8,18 @@
   }
 
   .contactInput {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#f7ab0a]/40 focus:text-[#f7ab0a]/40 hover:border-[#f7ab0a]/40;
+    @apply outline-none bg-slate-400/10 w-full sm:w-auto rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#6c55e0]/40 hover:border-[#6c55e0]/40;
+  }
+
+  .snap-title {
+    @apply absolute top-16 uppercase tracking-[10px] md:tracking-[20px] text-[#6C55E0] text-lg md:text-xl;
+  }
+
+  .contact-icon {
+    @apply text-[#6C55E0]/50 h-5 w-5 md:h-7 md:w-7 animate-pulse;
+  }
+
+  .contact-title {
+    @apply text-lg md:text-2xl;
   }
 }

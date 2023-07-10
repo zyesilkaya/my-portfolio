@@ -1,10 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Project } from '@/typings'
+import { urlFor } from '../../sanity'
 
-type Props = {}
+type Props = {
+  project?: Project[]
+}
 
-const Projects = (props: Props) => {
-  const projects = [1, 2, 3, 4, 5]
+const Projects = ({ project }: Props) => {
+  const projects = project
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,39 +17,31 @@ const Projects = (props: Props) => {
       viewport={{ once: true }}
       className='h-screen relative flex flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'
     >
-      <h3 className='absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl'>
-        Projects
-      </h3>
-      <div className='relative flex overflow-x-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#6C55E0] w-[90%] h-[80%] overflow-y-hidden snap-x snap-mandatory z-20 top-14'>
-        {projects.map((item, i) => (
+      <h3 className='snap-title'>Projects</h3>
+      <div className='relative flex overflow-x-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#6C55E0] w-[90%] h-[90%] overflow-y-hidden snap-x snap-mandatory z-20 -mt-10'>
+        {projects?.map((item, i) => (
           <div
             key={i}
-            className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-32 h-screen'
+            className='w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center gap-10 px-10 h-screen'
           >
             <motion.img
-              initial={{ y: -300 }}
+              initial={{ y: -200 }}
               transition={{ duration: 0.75 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src='https://burgessforensics.com/wp-content/uploads/2016/10/ManyMobileDevices.jpg'
+              src={urlFor(item?.image).url()}
               alt=''
+              className='w-64 md:w-[15rem]'
             />
-            <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
-              <h4 className='text-2xl font-semibold text-center'>
+            <div className=' px-0 max-w-6xl'>
+              <h4 className='text-lg md:text-2xl sm:text-lg font-semibold text-center'>
                 <span className='underline decoration-[#6C55E0]/50'>
                   Case Study {i + 1} of {projects.length}:{' '}
                 </span>
-                UPS clone
+                {item?.title}
               </h4>
               <p className='text-md text-center md:text-left'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
-                consequuntur temporibus veniam, dignissimos tenetur officia,
-                nesciunt, cum aliquid excepturi dolor aspernatur minima
-                reiciendis quam aut omnis asperiores maiores quidem id
-                laudantium atque impedit quo. Optio, vitae facilis veritatis
-                reprehenderit itaque ducimus veniam quis saepe nostrum dicta
-                rerum facere, libero repellat vel quo animi fuga in! Facere,
-                animi? Alias, aut corporis!
+                {item?.summary}
               </p>
             </div>
           </div>

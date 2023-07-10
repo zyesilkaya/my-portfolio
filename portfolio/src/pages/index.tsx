@@ -62,13 +62,13 @@ export default function Home({
         <About pageInfo={pageInfo} />
       </section>
       <section id='experience' className='snap-center'>
-        <WorkExperience />
+        <WorkExperience experience={experience} />
       </section>
       <section id='skills' className='snap-center'>
         <Skills skills={skills} />
       </section>
       <section id='projects' className='snap-center'>
-        <Projects />
+        <Projects project={project} />
       </section>
       <section className='snap-center' id='contact'>
         <ContactMe />
